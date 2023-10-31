@@ -80,8 +80,8 @@ const updateBook = async (req, res) => {
         if (!id) {
             await res.status(400).send({ message: "please provide the id" })
         } else {
-            const result = await book.findByIdAndUpdate(id, { object })
-
+            console.log(object)
+            const result = await book.findByIdAndUpdate(id, { object }, {assert : true})
             await res.status(200).send({ message: "updated successfully", data: result })
         }
 
